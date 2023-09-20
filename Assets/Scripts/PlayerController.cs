@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Animator animator;
+    public GameObject Staff;
 
     void Start()
     {
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         if (moveX > 0) // Mover para a direita
         {
-            animator.SetTrigger("WalkRight");
+            animator.SetTrigger("WalkRight"); 
         }
         else if (moveX < 0) // Mover para a esquerda
         {

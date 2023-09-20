@@ -13,8 +13,8 @@ public class MagicController : MonoBehaviour
     {
         if (Input.GetButtonDown ("Fire1"))
         {
-            Instantiate(Magic, Staff.transform.position, Staff.transform.rotation);
-            //AudioController.instance.PlayOneShot(ShootingSound); // Toca o som de tiro
+            Instantiate(Magic, Staff.transform.position, Staff.transform.rotation); // Instancia o objeto Magic
+            GetComponent<AudioSource>().PlayOneShot(ShootingSound); // Toca o som de tiro
         }
     }
 }
