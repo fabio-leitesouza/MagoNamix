@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Animator animator;
+    public int Life = 100;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        Time.timeScale = 1;
     }
 
     void Update()
@@ -32,5 +35,22 @@ public class PlayerController : MonoBehaviour
         // Atualize os parâmetros do Animator com base na direção do movimento
         animator.SetFloat("MovimentoX", movement.x);
         animator.SetFloat("MovimentoY", movement.y);
+
+        if (Life <= 0)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                SceneManager.LoadScene("game");
+            }
+        }
+    }
+    public void TakesDamage (int damage)
+    {
+        Life -= damage;     
+       
+        if (Life <= 0)
+            {
+                Time.timeScale = 0;
+            }
     }
 }

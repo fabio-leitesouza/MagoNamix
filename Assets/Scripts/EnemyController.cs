@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public GameObject Player;
     public float velocidadeMovimento = 2.0f; // Velocidade de movimento do inimigo.
     public float distanciaPerseguicao = 5.0f; // Distância para começar a perseguir o jogador.
     public int dano = 10; // Dano causado pelo inimigo ao jogador.
@@ -17,6 +18,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        Player = GameObject.FindWithTag("Player");
         jogador = GameObject.FindGameObjectWithTag("Player").transform; // Encontre o jogador por meio da tag "Player".
         animador = GetComponent<Animator>(); // Obtenha o componente Animator do inimigo.
         tempoVagar = Random.Range(1.0f, 4.0f); // Defina um tempo inicial para o vagar.
@@ -85,7 +87,9 @@ public class EnemyController : MonoBehaviour
             // Coloque aqui o código para causar dano ao jogador.
             // Por exemplo, você pode chamar uma função do jogador para aplicar o dano.
             // jogador.GetComponent<Jogador>().AplicarDano(dano);
-            
+            int damage = Random.Range(20, 30);
+            PlayerController playerScript = Player.GetComponent<PlayerController>();
+            playerScript.TakesDamage(damage);
         }
     }
 }
