@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
 
     private Transform jogador; // Referência ao transform do jogador.
     private Animator animador; // Referência ao componente Animator do inimigo.
-    private bool jogadorProximo = false; // Indica se o jogador está próximo.
+    private bool playerNearby = false; // Indica se o jogador está próximo.
 
     private Vector3 direcaoAleatoria; // Direção aleatória para o vagar.
     private float tempoVagar; // Tempo para o vagar.
@@ -30,14 +30,14 @@ public class EnemyController : MonoBehaviour
 
         if (distancia < distanciaPerseguicao)
         {
-            jogadorProximo = true;
+            playerNearby = true;
             Vector3 direcao = (jogador.position - transform.position).normalized;
             transform.Translate(direcao * velocidadeMovimento * Time.deltaTime);
             AtualizarAnimacao(direcao);
         }
         else
         {
-            jogadorProximo = false;
+            playerNearby = false;
             Vagar();
         }
     }
@@ -80,11 +80,12 @@ public class EnemyController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Se o inimigo colidir com o jogador e o jogador estiver próximo, cause dano ao jogador.
-        if (other.CompareTag("Player") && jogadorProximo)
+        if (other.CompareTag("Player") && playerNearby)
         {
             // Coloque aqui o código para causar dano ao jogador.
             // Por exemplo, você pode chamar uma função do jogador para aplicar o dano.
             // jogador.GetComponent<Jogador>().AplicarDano(dano);
+            
         }
     }
 }
