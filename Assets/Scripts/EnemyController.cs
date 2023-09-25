@@ -23,6 +23,9 @@ public class EnemyController : MonoBehaviour
         animador = GetComponent<Animator>(); // Obtenha o componente Animator do inimigo.
         tempoVagar = Random.Range(1.0f, 4.0f); // Defina um tempo inicial para o vagar.
         EscolherNovaDirecaoAleatoria(); // Inicialmente, escolha uma direção aleatória para o vagar.
+
+        // Inicie a chamada repetida da função de aplicação de dano.
+        InvokeRepeating("AplicarDanoAoJogador", 1.0f, 1.0f); // Chama "AplicarDanoAoJogador" a cada 1 segundo.
     }
 
     private void Update()
@@ -79,14 +82,11 @@ public class EnemyController : MonoBehaviour
         AtualizarAnimacao(direcaoAleatoria);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void AplicarDanoAoJogador()
     {
-        // Se o inimigo colidir com o jogador e o jogador estiver próximo, cause dano ao jogador.
-        if (other.CompareTag("Player") && playerNearby)
+        // Verifique se o jogador está próximo e, em seguida, aplique o dano.
+        if (playerNearby)
         {
-            // Coloque aqui o código para causar dano ao jogador.
-            // Por exemplo, você pode chamar uma função do jogador para aplicar o dano.
-            // jogador.GetComponent<Jogador>().AplicarDano(dano);
             int damage = Random.Range(20, 30);
             PlayerController playerScript = Player.GetComponent<PlayerController>();
             playerScript.TakesDamage(damage);
