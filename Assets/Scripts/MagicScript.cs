@@ -21,7 +21,7 @@ public class MagicScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<EnemyController>().TakeDamage(10);
         }
         Destroy(gameObject);
     }

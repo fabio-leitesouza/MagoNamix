@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -121,7 +121,280 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pentagramm_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff7889d187a8a6f4fba50e618dc7b261
+      internalID: 966919976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pentagramm_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48809c2b926e76849b1e526cfe0c3cfd
+      internalID: -1407666897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pentagramm_2
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 240
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38f4a11011208e48afcb8d4bd577a2c
+      internalID: 1886848881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pentagramm_3
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 240
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90d0ec47e45692b4aa083520936b1fe6
+      internalID: 731270632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pentagramm_4
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 240
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60643894e0978dc4682a274af89e809a
+      internalID: -1353303167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pentagramm_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d70ae1c91ec67054cba9580f8b25993d
+      internalID: -1646891348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pentagramm_6
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 120
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d37865ef040974889903019484c756
+      internalID: 252897681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pentagramm_7
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 120
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd169d12d090435499e99a0a39164dad
+      internalID: 721511095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pentagramm_8
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 120
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8bc94af359ac5b4d85059176edd4160
+      internalID: 1982421302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pentagramm_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f25bacd800b37840987f17495a33084
+      internalID: 841900148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pentagramm_10
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf743719ae31c74abee605eb683843b
+      internalID: -794730483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pentagramm_11
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 0
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfe27edc2d06fb344b881f2192e6ac2f
+      internalID: 77341270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pentagramm_12
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 110
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b047ae4738e4df4ebd26286f9151616
+      internalID: 595981030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +405,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pentagramm_0: 966919976
+      pentagramm_1: -1407666897
+      pentagramm_10: -794730483
+      pentagramm_11: 77341270
+      pentagramm_12: 595981030
+      pentagramm_2: 1886848881
+      pentagramm_3: 731270632
+      pentagramm_4: -1353303167
+      pentagramm_5: -1646891348
+      pentagramm_6: 252897681
+      pentagramm_7: 721511095
+      pentagramm_8: 1982421302
+      pentagramm_9: 841900148
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

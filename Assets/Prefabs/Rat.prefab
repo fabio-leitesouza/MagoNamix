@@ -127,6 +127,7 @@ MonoBehaviour:
   dano: 10
   intervaloDano: 2
   damage: 10
+  Life: 10
 --- !u!50 &9044456876441337339
 Rigidbody2D:
   serializedVersion: 4

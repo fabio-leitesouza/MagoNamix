@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     private Vector3 direcaoAleatoria;
     private float tempoVagar;
     public int damage = 10;
+    public int Life = 100;
 
     private void Start()
     {
@@ -32,7 +33,6 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         float distancia = Vector3.Distance(transform.position, jogador.position);
-
         if (distancia < distanciaPerseguicao)
         {
             playerNearby = true;
@@ -99,5 +99,14 @@ public class EnemyController : MonoBehaviour
             PlayerController playerScript = Player.GetComponent<PlayerController>();
             playerScript.TakesDamage(damage);
         }
+    }
+    public void TakeDamage (int dama)
+    {
+        Life -= dama;     
+       
+        if (Life <= 0)
+            {
+                Destroy(gameObject);
+            }
     }
 }
