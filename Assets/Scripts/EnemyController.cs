@@ -5,32 +5,32 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public GameObject Player;
-    public float velocidadeMovimento = 2.0f; // Velocidade de movimento do inimigo.
-    public float distanciaPerseguicao = 5.0f; // Distância para começar a perseguir o jogador.
-    public int dano = 10; // Dano causado pelo inimigo ao jogador.
+    public float velocidadeMovimento = 2.0f;
+    public float distanciaPerseguicao = 5.0f;
+    public int dano = 10;
+    public float intervaloDano = 2.0f; // Intervalo de tempo entre aplicações de dano.
 
-    private Transform jogador; // Referência ao transform do jogador.
-    private Animator animador; // Referência ao componente Animator do inimigo.
-    private bool playerNearby = false; // Indica se o jogador está próximo.
+    private Transform jogador;
+    private Animator animador;
+    private bool playerNearby = false;
+    private bool primeiroDano = true; // Controla se o primeiro dano já foi aplicado.
+    private float tempoUltimoDano = 0.0f; // Armazena o tempo da última aplicação de dano.
 
-    private Vector3 direcaoAleatoria; // Direção aleatória para o vagar.
-    private float tempoVagar; // Tempo para o vagar.
+    private Vector3 direcaoAleatoria;
+    private float tempoVagar;
+    public int damage = 10;
 
     private void Start()
     {
         Player = GameObject.FindWithTag("Player");
-        jogador = GameObject.FindGameObjectWithTag("Player").transform; // Encontre o jogador por meio da tag "Player".
-        animador = GetComponent<Animator>(); // Obtenha o componente Animator do inimigo.
-        tempoVagar = Random.Range(1.0f, 4.0f); // Defina um tempo inicial para o vagar.
-        EscolherNovaDirecaoAleatoria(); // Inicialmente, escolha uma direção aleatória para o vagar.
-
-        // Inicie a chamada repetida da função de aplicação de dano.
-        InvokeRepeating("AplicarDanoAoJogador", 1.0f, 1.0f); // Chama "AplicarDanoAoJogador" a cada 1 segundo.
+        jogador = GameObject.FindGameObjectWithTag("Player").transform;
+        animador = GetComponent<Animator>();
+        tempoVagar = Random.Range(1.0f, 4.0f);
+        EscolherNovaDirecaoAleatoria();
     }
 
     private void Update()
     {
-        // Verifique a distância entre o inimigo e o jogador.
         float distancia = Vector3.Distance(transform.position, jogador.position);
 
         if (distancia < distanciaPerseguicao)
@@ -39,6 +39,23 @@ public class EnemyController : MonoBehaviour
             Vector3 direcao = (jogador.position - transform.position).normalized;
             transform.Translate(direcao * velocidadeMovimento * Time.deltaTime);
             AtualizarAnimacao(direcao);
+
+            // Verifique a distância e aplique o dano.
+            if (distancia < 1.5f)
+            {
+                if (primeiroDano)
+                {
+                    // Aplica o primeiro dano imediatamente.
+                    AplicarDanoAoJogador();
+                    primeiroDano = false;
+                }
+                else if (Time.time - tempoUltimoDano >= intervaloDano)
+                {
+                    // Aplica dano adicional somente se o intervalo de tempo tiver passado.
+                    AplicarDanoAoJogador();
+                    tempoUltimoDano = Time.time; // Atualize o tempo da última aplicação de dano.
+                }
+            }
         }
         else
         {
@@ -55,39 +72,30 @@ public class EnemyController : MonoBehaviour
 
     private void Vagar()
     {
-        // Se o inimigo não está perseguindo o jogador, ele vai vagar.
         tempoVagar -= Time.deltaTime;
 
         if (tempoVagar <= 0)
         {
             EscolherNovaDirecaoAleatoria();
-            tempoVagar = Random.Range(1.0f, 4.0f); // Defina um novo tempo para o vagar.
+            tempoVagar = Random.Range(1.0f, 4.0f);
         }
 
-        // Movimentar o inimigo na direção aleatória.
         transform.Translate(direcaoAleatoria * velocidadeMovimento * Time.deltaTime);
-
-        // Atualizar as animações de acordo com a direção do movimento.
         AtualizarAnimacao(direcaoAleatoria);
     }
 
     private void EscolherNovaDirecaoAleatoria()
     {
-        // Escolha uma nova direção aleatória.
         float x = Random.Range(-1.0f, 1.0f);
         float y = Random.Range(-1.0f, 1.0f);
         direcaoAleatoria = new Vector3(x, y, 0).normalized;
-
-        // Atualize as animações com base na direção aleatória.
         AtualizarAnimacao(direcaoAleatoria);
     }
 
     private void AplicarDanoAoJogador()
     {
-        // Verifique se o jogador está próximo e, em seguida, aplique o dano.
         if (playerNearby)
         {
-            int damage = Random.Range(20, 30);
             PlayerController playerScript = Player.GetComponent<PlayerController>();
             playerScript.TakesDamage(damage);
         }
