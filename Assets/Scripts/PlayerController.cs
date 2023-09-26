@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     public int Life = 100;
+    public int Collections = 0;
+    public GameObject TextGameOver;
 
     void Start()
     {
@@ -38,11 +40,13 @@ public class PlayerController : MonoBehaviour
 
         if (Life <= 0)
         {
+
             if (Input.GetButtonDown("Fire1"))
             {
                 SceneManager.LoadScene("game");
             }
         }
+        
     }
     public void TakesDamage (int damage)
     {
@@ -51,6 +55,7 @@ public class PlayerController : MonoBehaviour
         if (Life <= 0)
             {
                 Time.timeScale = 0;
+                TextGameOver.SetActive(true);
             }
     }
 }
