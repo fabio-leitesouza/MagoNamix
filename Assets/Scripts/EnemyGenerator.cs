@@ -9,11 +9,13 @@ public class EnemyGenerator : MonoBehaviour
     public float TimeEnemyGenerator = 1;
     public LayerMask LayerEnemy; // para não gerar Enemy em cima de outro     
     public LayerMask LayerObstacle; // para evitar gerar em obstáculos
+    private int maxEnemies = 6; // Número máximo de inimigos
+    private int currentEnemyCount = 0; // Contagem de inimigos ativos
 
     void Update()
     {
         timeCounter += Time.deltaTime;
-        if (timeCounter >= TimeEnemyGenerator)
+        if (timeCounter >= TimeEnemyGenerator && currentEnemyCount < maxEnemies)
         {
             GenerateNewEnemy();
             timeCounter = 0;
@@ -29,6 +31,7 @@ public class EnemyGenerator : MonoBehaviour
         } while (!IsValidSpawnPosition(positionCreateEnemy));
 
         Instantiate(Enemy, positionCreateEnemy, transform.rotation);
+        currentEnemyCount++; // Incrementa a contagem de inimigos ativos
     }
 
     Vector3 randomPosition()

@@ -27,25 +27,21 @@ public class PentaScript : MonoBehaviour
         
         if (playerScript.Collections == TotalConllections)
         {
-            GetComponent<Animator>().SetBool("PentaOn", true);            
-            if (Input.GetButtonDown("Fire1"))
-            {
-                SceneManager.LoadScene("game2");
-            }
+            GetComponent<Animator>().SetBool("PentaOn", true);          
+            
         }
 
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController playerScript = Player.GetComponent<PlayerController>();
-        if (other.gameObject.CompareTag("Player") && playerScript.Collections == TotalConllections)
+        if (other.gameObject.CompareTag("Player") && playerScript.Collections >= TotalConllections)
         {
             audioSource.PlayOneShot(portalSound);
             TextPortal.SetActive(true);
             Time.timeScale = 0;
             audioSource.PlayOneShot(portalSound);
-            
-            
+            SceneManager.LoadScene("game2");
         }
     }
 }
