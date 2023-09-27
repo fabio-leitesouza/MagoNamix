@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
     private float tempoVagar;
     public int damage = 10;
     public int Life = 100;
+    public AudioClip damageSound;
 
     private void Start()
     {
@@ -102,7 +103,8 @@ public class EnemyController : MonoBehaviour
     }
     public void TakeDamage (int dama)
     {
-        Life -= dama;     
+        Life -= dama; 
+        AudioControl.instance.PlayOneShot(damageSound);    
        
         if (Life <= 0)
             {

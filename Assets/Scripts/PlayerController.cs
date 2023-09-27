@@ -11,12 +11,15 @@ public class PlayerController : MonoBehaviour
     public int Life = 100;
     public int Collections = 0;
     public GameObject TextGameOver;
+    public InterfaceController scripInterfaceController;
+    public AudioClip damageSound;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         Time.timeScale = 1;
+
     }
 
     void Update()
@@ -50,7 +53,9 @@ public class PlayerController : MonoBehaviour
     }
     public void TakesDamage (int damage)
     {
-        Life -= damage;     
+        Life -= damage;    
+        scripInterfaceController.UpdateSlidePlayerLife(); 
+        AudioControl.instance.PlayOneShot(damageSound);
        
         if (Life <= 0)
             {

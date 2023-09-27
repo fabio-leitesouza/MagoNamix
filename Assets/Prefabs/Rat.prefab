@@ -128,6 +128,7 @@ MonoBehaviour:
   intervaloDano: 2
   damage: 10
   Life: 10
+  damageSound: {fileID: 8300000, guid: f6b3933746ed3c845bd9352307a7ed64, type: 3}
 --- !u!50 &9044456876441337339
 Rigidbody2D:
   serializedVersion: 4

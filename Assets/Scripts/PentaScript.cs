@@ -9,7 +9,7 @@ public class PentaScript : MonoBehaviour
     public GameObject TextPortal;
     private AudioSource audioSource;
     public AudioClip portalSound;
-    public int TotalConllections = 1;
+    public int TotalCollections = 8;
     
     // Update is called once per frame
 
@@ -25,19 +25,17 @@ public class PentaScript : MonoBehaviour
     {
         PlayerController playerScript = Player.GetComponent<PlayerController>();
         
-        if (playerScript.Collections == TotalConllections)
+        if (playerScript.Collections >= TotalCollections)
         {
             GetComponent<Animator>().SetBool("PentaOn", true);          
-            
         }
 
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController playerScript = Player.GetComponent<PlayerController>();
-        if (other.gameObject.CompareTag("Player") && playerScript.Collections >= TotalConllections)
-        {
-            audioSource.PlayOneShot(portalSound);
+        if (other.gameObject.CompareTag("Player") && playerScript.Collections >= TotalCollections)
+        {            
             TextPortal.SetActive(true);
             Time.timeScale = 0;
             audioSource.PlayOneShot(portalSound);
