@@ -12,6 +12,9 @@ public class EnemyGenerator : MonoBehaviour
     private int maxEnemies = 6; // Número máximo de inimigos
     private int currentEnemyCount = 0; // Contagem de inimigos ativos
 
+    public float MyFloatVariable = 0.0f;
+
+
     void Update()
     {
         timeCounter += Time.deltaTime;
@@ -29,6 +32,7 @@ public class EnemyGenerator : MonoBehaviour
         {
             positionCreateEnemy = randomPosition();
         } while (!IsValidSpawnPosition(positionCreateEnemy));
+        
 
         Instantiate(Enemy, positionCreateEnemy, transform.rotation);
         currentEnemyCount++; // Incrementa a contagem de inimigos ativos

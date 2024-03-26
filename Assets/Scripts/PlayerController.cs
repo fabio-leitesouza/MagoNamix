@@ -13,13 +13,13 @@ public class PlayerController : MonoBehaviour
     public GameObject TextGameOver;
     public InterfaceController scripInterfaceController;
     public AudioClip damageSound;
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         Time.timeScale = 1;
-
     }
 
     void Update()
